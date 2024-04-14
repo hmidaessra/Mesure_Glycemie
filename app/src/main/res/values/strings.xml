@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Essra_Hmida_Mesure_Glycemie</string>
+    <string name="mesure_de_niveau_de_glycémie">Mesure de niveau de glycémie</string>
+    <string name="text">mesure de niveau de glycémie</string>
+    <string name="votre_age">Votre age:</string>
+    <string name="jeune">Est-ce que vous jeûnez ?</string>
+    <string name="jeûne">Est-ce que vous jeûnez ?</string>
+    <string name="Non">Non</string>
+    <string name="Oui">Oui\n</string>
+</resources>
