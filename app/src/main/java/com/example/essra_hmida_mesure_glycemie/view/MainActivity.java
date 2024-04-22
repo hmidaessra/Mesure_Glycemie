@@ -1,6 +1,9 @@
 package com.example.essra_hmida_mesure_glycemie.view;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private EditText etValeur;
-    private TextView tvAge, tvReponse;
+    private final String RESPONSE_KEY="result";
+    private final int REQUEST_CODE=1;//le code de consultActivity
+    private TextView tvAge;
     private SeekBar sbAge;
     private RadioButton rbIsFasting, rbIsNotFasting;
     private Button btnConsulter;
@@ -72,7 +77,10 @@ public class MainActivity extends AppCompatActivity {
                     //FLECHE "userAction" view-->controller
                     controller.createPatient(age,valeur,rbIsFasting.isChecked());
                     //fleche "notify" controller-->view
-                    tvReponse.setText(controller.getResult());
+                    //tvReponse.setText(controller.getResult());
+                    Intent intent =new Intent(MainActivity.this,ConsultActivity.class);
+                    intent.putExtra(RESPONSE_KEY,controller.getResult());
+                    startActivityForResult(intent,REQUEST_CODE);
 
 
                 }
@@ -80,7 +88,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==REQUEST_CODE)
+            if (resultCode==RESULT_CANCELED)
+                Toast.makeText(MainActivity.this,"ERROR/RESULTT_CANCELED",Toast.LENGTH_LONG);
+    }
 
     private void init() {
         controller=Controller.getInstance();
@@ -90,6 +104,6 @@ public class MainActivity extends AppCompatActivity {
         rbIsFasting = findViewById(R.id.rbtOui);
         rbIsNotFasting = findViewById(R.id.rbtNon);
         btnConsulter = findViewById(R.id.btnConsulter);
-        tvReponse = findViewById(R.id.tvReponse);
+
     }
 }
