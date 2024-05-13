@@ -7,4 +7,6 @@
     <string name="jeûne">Est-ce que vous jeûnez ?</string>
     <string name="Non">Non</string>
     <string name="Oui">Oui\n</string>
+    <string name="mot_de_passe">mot de passe\n</string>
+    <string name="email">email\n</string>
 </resources>

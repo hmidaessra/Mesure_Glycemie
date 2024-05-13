@@ -105,5 +105,5 @@ public class MainActivity extends AppCompatActivity {
         rbIsNotFasting = findViewById(R.id.rbtNon);
         btnConsulter = findViewById(R.id.btnConsulter);
 
-    }
-}
+        }
+        }
